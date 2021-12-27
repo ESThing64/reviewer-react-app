@@ -1,30 +1,24 @@
-
-const title = "Blah blah blah this is a title"
-const body = "This is a blog post"
-const comments = [
-  { id: 1, text: "fist comment" },
-  { id: 2, text: "second comment" },
-  { id: 3, text: "third comment" },
-]
+import Header from "./components/Header";
+import { useState } from "react";
+import FeedbackList from "./components/FeedbackList";
+import FeedbackData from "./data/FeedBackData";
 
 function App() {
+  const [feedback, setFeedback] = useState(FeedbackData)
+
+
+
   return (
+    <>
 
-    <div>
-      <h1>{title.toUpperCase()}</h1>
-      <p>{body}</p>
-      <div className="comments">
+      <Header />
+      <div className="container">
 
-        <h3>Commments ({comments.length})</h3>
-        <ul>
-          {comments.map((comments, index)=> (
-            <li key={index}>{comments.text}</li>
+  
+        <FeedbackList feedback={feedback} />
 
-          ))}
-        </ul>
-          </div>
-
-    </div>
+      </div>
+    </>
   );
 }
 
